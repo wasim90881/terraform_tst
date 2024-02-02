@@ -2,7 +2,7 @@
 
 
 module "dev-instances" {
-    source          = "../modules/instances"
+    source          = "../../../modules/instances"
 
     ENVIRONMENT     = var.Env
     AWS_REGION      = var.AWS_REGION
