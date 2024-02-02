@@ -4,10 +4,7 @@
   collections:
    - cloud.terraform
 
-  vars:
-   location:
-     development: environment/nonp/development/
-     test: environment/nonp/test/
+
 
   vars_prompt:
 
@@ -17,18 +14,23 @@
 
 
 
+  vars:
+   location:
+     development: "environment/nonp/development/"  
+     test: "environment/nonp/test/"
+ 
 
   tasks:
 
    - name: Basic deploy of an instance
      cloud.terraform.terraform:
-      project_path: "{{ location['env'] }}"
+      project_path: "{{ location[env] }}"
       state: present
       force_init: true
 
    - name: Remove Instance
      cloud.terraform.terraform:
-      project_path: '{{ project_dir }}'
+      project_path: "{{ location[env] }}"
       state: absent
       force_init: true
      tags:

@@ -1,0 +1,22 @@
+---
+- name: Infrastructure Deployment
+  hosts: localhost
+  collections:
+   - cloud.terraform
+
+
+  vars_prompt:
+
+    - name: location
+      prompt: Please confirm the Environmenr Development or Test to deploy?
+      private: false
+
+  vars:
+    loc1: "10.13.1.140"
+    loc2: "10.13.1.141"
+    loc3: "10.13.1.142"  
+
+  tasks:
+    - name: Show the value user entered
+      debug:
+        msg: " this is tes {{ vars[location] }}"    
