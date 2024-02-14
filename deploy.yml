@@ -30,9 +30,6 @@
        - never
        - remove
 
-   - name: Wait to Completely Provision Instances
-     pause:
-       minutes: 2
 
    - name: Refresh Inventory
      meta: refresh_inventory
