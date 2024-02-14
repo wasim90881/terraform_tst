@@ -6,13 +6,6 @@
 
 
 
-  vars_prompt:
-
-    - name: env
-      prompt: Please confirm the Environmenr Development or Test to deploy?
-      private: false
-
-
 
   vars:
    location:
@@ -24,13 +17,13 @@
 
    - name: Basic deploy of an instance
      cloud.terraform.terraform:
-      project_path: "{{ location[env] }}"
+      project_path: "{{ development }}"
       state: present
       force_init: true
 
    - name: Remove Instance
      cloud.terraform.terraform:
-      project_path: "{{ location[env] }}"
+      project_path: "{{ development }}"
       state: absent
       force_init: true
      tags:
