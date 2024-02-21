@@ -1,22 +1,10 @@
 ---
-- name: Infrastructure Deployment
-  hosts: localhost
-  collections:
-   - cloud.terraform
-
-
-  vars_prompt:
-
-    - name: location
-      prompt: Please confirm the Environmenr Development or Test to deploy?
-      private: false
-
-  vars:
-    loc1: "10.13.1.140"
-    loc2: "10.13.1.141"
-    loc3: "10.13.1.142"  
+# This playbook prints a simple debug message
+- name: Echo 
+  hosts: 127.0.0.1
+  connection: local
 
   tasks:
-    - name: Show the value user entered
-      debug:
-        msg: " this is tes {{ vars[location] }}"    
+  - name: Print debug message
+    debug:
+      msg: Hello, world!
