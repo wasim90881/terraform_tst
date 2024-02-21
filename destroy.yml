@@ -1,0 +1,28 @@
+---
+- name: Infrastructure Deployment
+  hosts: localhost
+  collections:
+   - cloud.terraform
+
+
+
+
+  vars:
+   location:
+     development: "environment/nonp/development/"  
+     test: "environment/nonp/test/"
+ 
+
+  tasks:
+
+
+   - name: Remove Instance
+     cloud.terraform.terraform:
+      project_path: "{{ location[development] }}"
+      state: absent
+      force_init: true
+     tags:
+       - never
+       - remove
+
+
