@@ -19,7 +19,7 @@
    - name: Remove Instance
      cloud.terraform.terraform:
       project_path: "{{ location[development] }}"
-      state: absent
+      state: present
       force_init: true
      tags:
        - never
