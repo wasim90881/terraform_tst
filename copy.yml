@@ -8,5 +8,5 @@
   tasks:
 
    - name: Simple PUT operation
-    ansible.builtin.shell: |
-      hostname
+     ansible.builtin.shell: |
+       hostname
