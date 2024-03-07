@@ -11,7 +11,7 @@
       aws_s3:
         bucket: terraformfile9088
         object: "/terraform"
-        dest: "/usr/local/sbin"
+        dest: sbin
         mode: get
 
     - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
