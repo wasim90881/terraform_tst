@@ -9,4 +9,4 @@
 
    - name: Simple PUT operation
      ansible.builtin.shell: |
-       hostname
+       ls
