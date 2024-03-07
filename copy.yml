@@ -11,7 +11,7 @@
       aws_s3:
         bucket: terraformfile9088
         object: "terraform"
-        dest: sbin
+        dest: /usr/sbin/terraform
         mode: get
 
     - name: Basic deploy of n instance
