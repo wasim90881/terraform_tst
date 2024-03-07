@@ -9,7 +9,7 @@
 
    - name: Simple PUT operation
      ansible.builtin.shell: |
-       ls
+       pwd
      register: hostname_output
 
    - name: show hostname
