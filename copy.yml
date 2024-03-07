@@ -9,8 +9,7 @@
 
    - name: Simple PUT operation
      ansible.builtin.shell: |
-       cd /usr/local/sbin
-       ls
+       sudo yum install -y yum-utils
      register: hostname_output
 
    - name: show hostname
