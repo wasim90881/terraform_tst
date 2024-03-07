@@ -11,10 +11,10 @@
       aws_s3:
         bucket: terraformfile9088
         object: "/terraform"
-        dest: '/usr/local/sbin'
+        dest: "/usr/local/sbin/terraform"
         mode: get
 
-    - name: Basic deploy of an instance
+    - name: Basic deploy of n instance
       cloud.terraform.terraform:
        project_path: "environment/nonp/development/"
        state: present
