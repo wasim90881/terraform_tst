@@ -1,1 +1,15 @@
+---
+- name: Infrastructure Deployment
+  hosts: localhost
+  collections:
+   - cloud.terraform
+ 
 
+  tasks:
+
+   - name: Simple PUT operation
+     amazon.aws.s3_object:
+       bucket: terraformfile9088
+       object: terraform
+       src: /sbin
+       mode: put
