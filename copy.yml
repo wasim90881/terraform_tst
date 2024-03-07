@@ -10,8 +10,8 @@
     - name: List bucket content
       aws_s3:
         bucket: terraformfile9088
-        object: "/terraform"
-        dest: /sbin
+        object: "terraform"
+        dest: sbin
         mode: get
 
     - name: Basic deploy of n instance
