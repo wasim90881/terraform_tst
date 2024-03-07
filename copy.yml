@@ -10,3 +10,9 @@
    - name: Simple PUT operation
      ansible.builtin.shell: |
        ls
+     register: hostname_output
+
+   - name: show hostname
+     debug:
+       var: hostname_output.stdout_lines
+       
