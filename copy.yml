@@ -3,7 +3,7 @@
   hosts: localhost
   collections:
    - cloud.terraform
- 
+
 
   tasks:
 
@@ -11,14 +11,12 @@
       aws_s3:
         bucket: terraformfile9088
         object: "/terraform"
-        dest: sbin
+        dest: tmp
         mode: get
 
-    - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
-      ansible.builtin.shell: |
-        terraform version
-      register: hostname_output
-      
-    - name: show hostname
-      debug:
-        var: hostname_output.stdout_lines
+    - name: Basic deploy of an instance
+      cloud.terraform.terraform:
+       project_path: "environment/nonp/development/"
+       state: present
+       force_init: true
+
