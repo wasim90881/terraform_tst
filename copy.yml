@@ -11,14 +11,12 @@
       aws_s3:
         bucket: terraformfile9088
         object: "/terraform"
-        dest: tmp
+        dest: /tmp
         mode: get
-
 
     - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
       ansible.builtin.shell: |
-        cd /tmp
-        ls
+        cd /tmp | ls -lrt
       register: hostname_output
       
     - name: show hostname
