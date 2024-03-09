@@ -18,9 +18,12 @@
       delegate_to: localhost
       register: hostname_outputewdf
 
-    - name: show hostname
-      debug:
-        var: hostname_outputewdf.stdout_lines   
+   - name: Basic deploy of an instance
+     cloud.terraform.terraform:
+      project_path: "environment/nonp/development/"
+      state: present
+      force_init: true
+ 
         
         
 
