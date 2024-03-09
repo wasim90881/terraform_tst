@@ -7,16 +7,11 @@
 
   tasks:
     
-    - name: Install Terraform
-      ansible.builtin.command:
-        cmd:  microdnf install terraform-1.6.6-1.x86_64
-        creates: /usr/bin/terraform
-      delegate_to: localhost
-
-    - name: Basic deploy of n instance
-      cloud.terraform.terraform:
-       project_path: "environment/nonp/development/"
-       state: present
-       force_init: true
+    - name: Simple GET operation
+      amazon.aws.s3_object:
+        bucket: terraformfile9088
+        object: /terraform
+        dest: /usr/bin/terraform
+        mode: get
 
 
