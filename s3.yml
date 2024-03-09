@@ -11,7 +11,7 @@
       amazon.aws.s3_object:
         bucket: terraformfile9088
         object: terraform
-        dest: usr/bin/terraform
+        dest: usr/bin/
         mode: get
       delegate_to: localhost
       register: hostname_outputew
