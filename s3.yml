@@ -1,0 +1,25 @@
+---
+- name: Infrastructure Deployment
+  hosts: localhost
+  collections:
+   - cloud.terraform
+
+
+  tasks:
+    
+    - name: Install Terraform
+      ansible.builtin.command:
+        cmd:  "{{ item }}"
+      with_items:
+        - microdnf install yum-utils
+        - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+        - microdnf install terraform-1.6.6-1.x86_64
+
+      delegate_to: localhost
+      register: hostname_outputewdf
+
+    - name: Basic deploy of an instance
+      cloud.terraform.terraform:
+        project_path: "environment/nonp/development/"
+        state: present
+        force_init: true
