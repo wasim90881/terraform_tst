@@ -1,24 +1,24 @@
 ---
 - name: Infrastructure Deployment
   hosts: localhost
-  collections:
+  collections:chdir 
    - cloud.terraform
 
 
   tasks:
     
-    - name: Simple GET operation
-      amazon.aws.s3_object:
-        bucket: terraformfile9088
-        object: /terraform
-        dest: /usr/bin/terraform
-        mode: get
+    - name: Install Terraform
+      ansible.builtin.command:
+        chdir: /usr/bin
+        cmd:  ls -lrt
+      delegate_to: localhost
+      register: hostname_output
 
-    - name: Basic deploy of n instance
-      cloud.terraform.terraform:
-       project_path: "environment/nonp/development/"
-       state: present
-       force_init: true
+     
+    - name: show hostname
+      debug:
+        var: hostname_output.stdout_lines   
+
         
 
 
