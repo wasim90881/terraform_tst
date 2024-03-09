@@ -9,7 +9,7 @@
 
     - name: installing Terraform
       ansible.builtin.command:
-        cmd: yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+        cmd: dnf repolist
       delegate_to: localhost
       register: hostname_outputewdf
 
