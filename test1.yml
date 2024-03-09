@@ -18,15 +18,8 @@
       delegate_to: localhost
       register: hostname_outputewdf
 
-   - name: Basic deploy of an instance
-     cloud.terraform.terraform:
-      project_path: "environment/nonp/development/"
-      state: present
-      force_init: true
- 
-        
-        
-
-
-
-        
+    - name: Basic deploy of an instance
+      cloud.terraform.terraform:
+        project_path: "environment/nonp/development/"
+        state: present
+        force_init: true
