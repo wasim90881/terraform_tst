@@ -30,7 +30,19 @@
 
     - name: show hostname
       debug:
-        var: hostname_outputew.stdout_lines         
+        var: hostname_outputew.stdout_lines
+
+    - name: installing Terraform
+      ansible.builtin.command:
+        cmd: terraform -help
+      delegate_to: localhost
+      register: hostname_outputewdf
+
+    - name: show hostname
+      debug:
+        var: hostname_outputewdf.stdout_lines   
+        
+        
 
 
 
