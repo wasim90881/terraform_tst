@@ -12,12 +12,9 @@
         chdir: /usr/bin
         cmd:  ls -lrt
       delegate_to: localhost
-      register: hostname_output
+
 
      
-    - name: show hostname
-      debug:
-        var: hostname_output.stdout_lines   
 
         
 
