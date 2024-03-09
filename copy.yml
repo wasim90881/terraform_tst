@@ -9,13 +9,8 @@
     
     - name: Install Terraform
       ansible.builtin.command:
-        cmd:  microdnf install terraform-1.6.6-1.x86_64
-        creates: /usr/bin/terraform
+        cmd:  microdnf install -y yum-utils
       delegate_to: localhost
 
-    - name: Basic deploy of n instance
-      cloud.terraform.terraform:
-       project_path: "environment/nonp/development/"
-       state: present
-       force_init: true
+
 
