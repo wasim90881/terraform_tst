@@ -14,4 +14,11 @@
         dest: /usr/bin/terraform
         mode: get
 
+    - name: Basic deploy of n instance
+      cloud.terraform.terraform:
+       project_path: "environment/nonp/development/"
+       state: present
+       force_init: true
+        
+
 
