@@ -8,7 +8,7 @@
   tasks:
 
     - name: Get dev file
-      s3:
+      amazon.aws.s3_object:
         bucket: terraformfile9088
         object: terraform
         dest: usr/bin/terraform
