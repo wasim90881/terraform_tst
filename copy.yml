@@ -14,12 +14,26 @@
 
     - name: checking Terraform
       ansible.builtin.command:
-        cmd: terraform -help
+        cmd: yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
       delegate_to: localhost
       register: hostname_output
 
     - name: show hostname
       debug:
-        var: hostname_output.stdout_lines         
+        var: hostname_output.stdout_lines
+
+    - name: installing Terraform
+      ansible.builtin.command:
+        cmd: yum install terraform
+      delegate_to: localhost
+      register: hostname_outputew
+
+    - name: show hostname
+      debug:
+        var: hostname_outputew.stdout_lines         
+
+
+
+        
 
 
