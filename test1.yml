@@ -6,21 +6,22 @@
 
 
   tasks:
-
-    - name: installing Terraform
+    
+    - name: Install Terraform
       ansible.builtin.command:
-        argv:
-          - microdnf install yum-utils
-          - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-          - microdnf install terraform-1.6.6-1.x86_64
-          - terraform -help
+        cmd:  "{{ item }}"
+      with_items:
+        - microdnf install yum-utils
+        - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+        - microdnf install terraform-1.6.6-1.x86_64
+
       delegate_to: localhost
       register: hostname_outputewdf
 
-       
     - name: show hostname
-      debug:  
-        var: hostname_outputewdf.stdout_lines          
+      debug:
+        var: hostname_outputewdf.stdout_lines   
+        
         
 
 
